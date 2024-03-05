@@ -1,66 +1,90 @@
-[gd_scene load_steps=12 format=3 uid="uid://jrp50g5xfkvn"]
+[gd_scene load_steps=14 format=3 uid="uid://bp2tibglygpyb"]
 
-[ext_resource type="Texture2D" uid="uid://i3d45o2c1pax" path="res://enemy/Hurt/hurt1.png" id="1_5ii2e"]
-[ext_resource type="Script" path="res://Enemy.gd" id="1_spyks"]
-[ext_resource type="Texture2D" uid="uid://cp4b77vpcog64" path="res://enemy/Hurt/hurt2.png" id="2_jy3j3"]
-[ext_resource type="Texture2D" uid="uid://dmr3q0utrihfn" path="res://enemy/Hurt/hurt3.png" id="3_4f2yu"]
-[ext_resource type="Texture2D" uid="uid://bm6ov0l0p20na" path="res://enemy/Hurt/hurt4.png" id="4_6eixx"]
-[ext_resource type="Texture2D" uid="uid://b25ec8m3bxxbm" path="res://enemy/Walk/walk1.png" id="5_43k76"]
-[ext_resource type="Texture2D" uid="uid://hqaakws7bc4a" path="res://enemy/Walk/walk2.png" id="6_rt3p8"]
-[ext_resource type="Texture2D" uid="uid://b7wv4pe6g80vi" path="res://enemy/Walk/walk3.png" id="7_eqacp"]
-[ext_resource type="Texture2D" uid="uid://brcm2vufh1rx8" path="res://enemy/Walk/walk4.png" id="8_7h8yg"]
+[ext_resource type="Texture2D" uid="uid://boujil614kp6s" path="res://enemy/type2/hurt.png" id="1_12ov8"]
+[ext_resource type="Script" path="res://Enemy.gd" id="1_yydpf"]
+[ext_resource type="Texture2D" uid="uid://dhpqto40p5mxj" path="res://enemy/type2/walk.png" id="2_61p8f"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_6irm3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_58tp0"]
+atlas = ExtResource("1_12ov8")
+region = Rect2(0, 0, 96, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kmb8"]
+atlas = ExtResource("1_12ov8")
+region = Rect2(96, 0, 96, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8c47s"]
+atlas = ExtResource("1_12ov8")
+region = Rect2(192, 0, 96, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8s3j"]
+atlas = ExtResource("1_12ov8")
+region = Rect2(288, 0, 96, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4g1m"]
+atlas = ExtResource("2_61p8f")
+region = Rect2(0, 0, 96, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bop1k"]
+atlas = ExtResource("2_61p8f")
+region = Rect2(96, 0, 96, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxyjv"]
+atlas = ExtResource("2_61p8f")
+region = Rect2(192, 0, 96, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp6s6"]
+atlas = ExtResource("2_61p8f")
+region = Rect2(288, 0, 96, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g1s77"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_5ii2e")
+"texture": SubResource("AtlasTexture_58tp0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_jy3j3")
+"texture": SubResource("AtlasTexture_6kmb8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_4f2yu")
+"texture": SubResource("AtlasTexture_8c47s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_6eixx")
+"texture": SubResource("AtlasTexture_v8s3j")
 }],
-"loop": false,
+"loop": true,
 "name": &"Death",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_43k76")
+"texture": SubResource("AtlasTexture_f4g1m")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_rt3p8")
+"texture": SubResource("AtlasTexture_bop1k")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_eqacp")
+"texture": SubResource("AtlasTexture_yxyjv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_7h8yg")
+"texture": SubResource("AtlasTexture_hp6s6")
 }],
 "loop": true,
 "name": &"Walk",
-"speed": 15.0
+"speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6q8xo"]
-height = 48.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irkme"]
+size = Vector2(38, 51)
 
-[node name="Enemy" type="CharacterBody2D"]
-script = ExtResource("1_spyks")
+[node name="EnemyA" type="CharacterBody2D"]
+script = ExtResource("1_yydpf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_6irm3")
-animation = &"Death"
+sprite_frames = SubResource("SpriteFrames_g1s77")
+animation = &"Walk"
 autoplay = "Walk"
-frame = 3
-frame_progress = 1.0
+frame_progress = 0.00388077
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-texture_filter = 1
-position = Vector2(-3, 5)
-shape = SubResource("CapsuleShape2D_6q8xo")
+position = Vector2(-3, 6.5)
+shape = SubResource("RectangleShape2D_irkme")

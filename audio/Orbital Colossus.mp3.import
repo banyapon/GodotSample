@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkg78731mixab"
+path="res://.godot/imported/Orbital Colossus.mp3-af1e2b34c406cd54f66eed754db47fa9.mp3str"
+
+[deps]
+
+source_file="res://audio/Orbital Colossus.mp3"
+dest_files=["res://.godot/imported/Orbital Colossus.mp3-af1e2b34c406cd54f66eed754db47fa9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

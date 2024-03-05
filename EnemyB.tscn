@@ -1,0 +1,109 @@
+[gd_scene load_steps=23 format=3 uid="uid://dqy57njtttc4j"]
+
+[ext_resource type="Script" path="res://Enemy.gd" id="1_shnbw"]
+[ext_resource type="Texture2D" uid="uid://csvnffwky81ch" path="res://enemy/type1/explosion/explosion-animation1.png" id="1_u64dl"]
+[ext_resource type="Texture2D" uid="uid://ch1ym2cebiubb" path="res://enemy/type1/walk/mech-unit-export1.png" id="1_unela"]
+[ext_resource type="Texture2D" uid="uid://b7wb5agdrbtfx" path="res://enemy/type1/explosion/explosion-animation2.png" id="2_a06m7"]
+[ext_resource type="Texture2D" uid="uid://camja8qfehlpa" path="res://enemy/type1/walk/mech-unit-export2.png" id="2_c0s3b"]
+[ext_resource type="Texture2D" uid="uid://xthn8uogrkgs" path="res://enemy/type1/explosion/explosion-animation3.png" id="3_dajk7"]
+[ext_resource type="Texture2D" uid="uid://dpq7i223d10sc" path="res://enemy/type1/walk/mech-unit-export3.png" id="3_n2dtr"]
+[ext_resource type="Texture2D" uid="uid://dnkqurkg13tro" path="res://enemy/type1/walk/mech-unit-export4.png" id="4_30qqt"]
+[ext_resource type="Texture2D" uid="uid://cb77nhfx7w8ks" path="res://enemy/type1/explosion/explosion-animation4.png" id="4_31p11"]
+[ext_resource type="Texture2D" uid="uid://turwmij72w82" path="res://enemy/type1/explosion/explosion-animation5.png" id="5_03iop"]
+[ext_resource type="Texture2D" uid="uid://b47je1f3nn3c" path="res://enemy/type1/walk/mech-unit-export5.png" id="5_4ouc4"]
+[ext_resource type="Texture2D" uid="uid://duad856dimv61" path="res://enemy/type1/walk/mech-unit-export6.png" id="6_76hgl"]
+[ext_resource type="Texture2D" uid="uid://bsuuefmc28lkh" path="res://enemy/type1/explosion/explosion-animation6.png" id="6_dsbo0"]
+[ext_resource type="Texture2D" uid="uid://cpv1trvmr536s" path="res://enemy/type1/explosion/explosion-animation7.png" id="7_5l0mi"]
+[ext_resource type="Texture2D" uid="uid://cyphw45jvy6hl" path="res://enemy/type1/walk/mech-unit-export7.png" id="7_noitm"]
+[ext_resource type="Texture2D" uid="uid://d2tcy8udndi7o" path="res://enemy/type1/walk/mech-unit-export8.png" id="8_cxmu5"]
+[ext_resource type="Texture2D" uid="uid://cqqmfi2kjcsol" path="res://enemy/type1/explosion/explosion-animation8.png" id="8_ymurt"]
+[ext_resource type="Texture2D" uid="uid://bsaxhymiwttl6" path="res://enemy/type1/explosion/explosion-animation9.png" id="9_3mqsw"]
+[ext_resource type="Texture2D" uid="uid://kudqw0hy1skd" path="res://enemy/type1/walk/mech-unit-export9.png" id="9_37rh2"]
+[ext_resource type="Texture2D" uid="uid://dk1724r3ob6rf" path="res://enemy/type1/walk/mech-unit-export10.png" id="10_u7g61"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_46pxx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u64dl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_a06m7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dajk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_31p11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_03iop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dsbo0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5l0mi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ymurt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3mqsw")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_unela")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_c0s3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n2dtr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_30qqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4ouc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_76hgl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_noitm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cxmu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_37rh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_u7g61")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ol827"]
+size = Vector2(47, 61)
+
+[node name="EnemyB" type="CharacterBody2D"]
+script = ExtResource("1_shnbw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_46pxx")
+animation = &"Walk"
+autoplay = "Walk"
+frame_progress = 0.804832
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, 7.5)
+shape = SubResource("RectangleShape2D_ol827")
